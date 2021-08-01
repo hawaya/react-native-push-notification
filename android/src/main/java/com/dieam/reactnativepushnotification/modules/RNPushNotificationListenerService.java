@@ -16,7 +16,9 @@ import com.facebook.react.bridge.WritableMap;
 
 import static com.dieam.reactnativepushnotification.modules.RNPushNotification.LOG_TAG;
 
-public class RNPushNotificationListenerService extends FirebaseMessagingService {
+import com.leanplum.LeanplumPushFirebaseMessagingService;
+
+public class RNPushNotificationListenerService extends LeanplumPushFirebaseMessagingService {
 
     private RNReceivedMessageHandler mMessageReceivedHandler;
     private FirebaseMessagingService mFirebaseServiceDelegate;
@@ -74,6 +76,8 @@ public class RNPushNotificationListenerService extends FirebaseMessagingService 
 
     @Override
     public void onMessageReceived(RemoteMessage message) {
+        super.onMessageReceived(message);
+        
         mMessageReceivedHandler.handleReceivedMessage(message);
     }
 }
