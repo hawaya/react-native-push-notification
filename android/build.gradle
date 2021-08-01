@@ -14,6 +14,9 @@ allprojects {
         mavenCentral()
         google()
         jcenter()
+        maven {
+            url "https://repo.leanplum.com/"
+        }
     }
 }
 
@@ -61,4 +64,5 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
     implementation "com.google.firebase:firebase-messaging:${safeExtGet('firebaseMessagingVersion', '21.1.0')}"
+    implementation "com.leanplum:leanplum-fcm:${safeExtGet('leanplumVersion', '+')}"
 }
